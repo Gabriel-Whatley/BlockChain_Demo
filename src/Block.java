@@ -9,7 +9,7 @@ public class Block {
     public Block(int previousHash, String[] transactions) {
         this.previousHash = previousHash;
         this.transactions = transactions;
-        calculateBlockHash();
+        setBlockHash();
     }
 
     // Getters
@@ -21,23 +21,33 @@ public class Block {
         return transactions;
     }
 
+    public int getNumberOfTransactions() {
+        return transactions.length;
+    }
+
     public int getBlockHash() {
         return blockHash;
     }
 
     @Override public String toString() {
-        return "====Block Report====\nPrevious block hash: " + previousHash + "\nBlock transactions: " + Arrays.toString(transactions) + "\nBlock hash: " + blockHash;
+        return "Previous hash: " + previousHash + "\nCurrent hash: " + blockHash + "\nTransactions: " + Arrays.toString(transactions);
     }
 
     // Setters
     public void setTransaction(int indexNumber, String transactionString) {
         transactions[indexNumber] = transactionString;
-        calculateBlockHash();
+        setBlockHash();
     }
 
-    public void calculateBlockHash() {
+    public void setBlockHash() {
         Object[] contents = {Arrays.hashCode(transactions), previousHash};
         this.blockHash = Arrays.hashCode(contents);
+    }
+
+    public void editTransaction(int index, String transaction) {
+        index--;
+        transactions[index] = transaction;
+        setBlockHash();
     }
 
 }
