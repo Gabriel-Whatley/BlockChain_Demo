@@ -30,7 +30,7 @@ public class Block {
     }
 
     @Override public String toString() {
-        return "Previous hash: " + previousHash + "\nCurrent hash: " + blockHash + "\nTransactions: " + Arrays.toString(transactions);
+        return "\tPrevious hash: " + previousHash + "\n\tCurrent hash: " + blockHash + "\n\tTransactions: " + Arrays.toString(transactions);
     }
 
     // Setters

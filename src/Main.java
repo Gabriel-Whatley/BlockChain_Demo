@@ -32,7 +32,7 @@ public class Main {
 
     private static int userInterfaceHandler(Scanner input, String[] menuItems, String menuName) {
         int menuOption = 0; // Will be assigned based on user input later.
-        System.out.println(" -- " + menuName + " -- "); // Print the main title of the menu based on parameter.
+        System.out.println("-- " + menuName + " -- "); // Print the main title of the menu based on parameter.
         for (int i = 0; i < menuItems.length; i++) { // Iterates through the array printing the menu items.
             System.out.println((i + 1) + ".\t" + menuItems[i]); // Generates item numbers automatically.
         }
@@ -94,7 +94,6 @@ public class Main {
 
     public static void displayBlock(Scanner input, ArrayList<Block> blockChain) {
         int blockNum = 0;
-        int maxBlock = blockChain.size();
         do { // Start looping
             System.out.print("Enter the number of the block you would like to view: "); // Prompt user for input
             if (input.hasNextInt()) { // If the scanner's next token is an int.
@@ -113,7 +112,6 @@ public class Main {
 
     public static void editBlock(Scanner input, ArrayList<Block> blockChain) {
         int blockNum = 0;
-        int maxBlock = blockChain.size();
         do { // Start looping
             System.out.print("Enter the number of the block you would like to edit: "); // Prompt user for input
             if (input.hasNextInt()) { // If the scanner's next token is an int.
@@ -158,6 +156,7 @@ public class Main {
         for (Block block : blockChain) {
             System.out.println("-- Block #" + blockNum + " --");
             System.out.println(block);
+            blockNum++;
         }
     }
 
